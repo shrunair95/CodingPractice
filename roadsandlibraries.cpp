@@ -3,34 +3,34 @@
 using namespace std;
 
 class Graph{
-    long long V;
-    list<long long>c;
-    list<long long>*adj;
-    long long c_lib, c_road;
-    long long sum;
-    long long count;
+    long long int V;
+    list<long long int>c;
+    list<long long int>*adj;
+    long long int c_lib, c_road;
+    long long int sum;
+    long long int count;
     public:
-    Graph(long long V,long long a,long long b){
+    Graph(long long int V,long long int a,long long int b){
         this->V=V;
-        adj=new list<long long> [V+1];
+        adj=new list<long long int> [V+1];
         c_lib=a;
         c_road=b;
         sum=0;
         count=0;
     }
     
-    void addedge(long long a,long long b){
+    void addedge(long long int a,long long int b){
         adj[a].push_back(b);
         adj[b].push_back(a);
     }
     
     void connectedcomponents(){
         bool* visited = new bool[V];
-        list<long long>::iterator i;
+        list<long long int>::iterator i;
         sum=0;
-        for(long long i = 1; i <= V; i++)
+        for(long long int i = 1; i <= V; i++)
             visited[i] = false;
-        for (long long i=1; i<=V; i++)
+        for (long long int i=1; i<=V; i++)
         {   
             if (!visited[i])
             {
@@ -50,11 +50,11 @@ class Graph{
         c.clear();
     }
     
-    void DFS(long long i, bool visited[])
+    void DFS(long long int i, bool visited[])
     {
         visited[i] = true;
         count++;
-        list<long long>::iterator j;
+        list<long long int>::iterator j;
         for(j = adj[i].begin(); j != adj[i].end(); ++j)
             if(!visited[*j]){
                 DFS(*j, visited);
