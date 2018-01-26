@@ -4,8 +4,8 @@ using namespace std;
 
 class graph{
     int V;
-    long count;
-    list<long>c;
+    long long count;
+    list<long long>c;
     list<int>*adj;
     
     public:
@@ -39,11 +39,11 @@ class graph{
         
     }
     
-    int display()
+    long long display()
     {
         
-        long sum = 0,sum1;
-        list<long>::iterator i;
+        long long sum = 0,sum1;
+        list<long long>::iterator i;
         if(c.size()==1)
             return 0;
         for (i = c.begin(); i !=c.end() ; i++){
